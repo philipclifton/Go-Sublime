@@ -17,10 +17,10 @@ class create_vhost(sublime_plugin.TextCommand):
 
 		if self.giturl != '' and self.folder != '':
 			message = 'Creating virtual host at ' + self.folder + ' from  ' + self.giturl
-			print (subprocess.call("go create " + self.folder + ' ' + self.giturl , shell=True))
+			print (subprocess.Popen("go create " + self.folder + ' ' + self.giturl , shell=True))
 		elif self.folder != '':
 			message = 'Creating virtual host ' + self.folder
-			print (subprocess.call("go create " + self.folder, shell=True))
+			print (subprocess.Popen("go create " + self.folder, shell=True))
 		else:
 			message = 'No project directory supplied'
 
