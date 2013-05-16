@@ -1,4 +1,13 @@
-import sublime, sublime_plugin, pprint, subprocess
+import sublime
+import sublime_plugin
+import pprint
+import subprocess
+import os
+import re
+
+from os.path import join
+
+
 
 class create_vhost(sublime_plugin.TextCommand):
 	folder = ''
@@ -124,3 +133,19 @@ class work_vhost(sublime_plugin.TextCommand):
 
 	def project_cancel(self, string):
 		return ''
+
+
+class get_image_size(sublime_plugin.WindowCommand):
+	
+	def run(self, paths = []):
+		dimensionArgs = ['/usr/bin/sips', '-g', 'pixelHeight', '-g', 'pixelWidth', paths[0]]
+		sips = subprocess.Popen(dimensionArgs, stdout=subprocess.PIPE)
+		dimensions = sips.stdout.read()
+		dimensions = dimensions.decode("utf-8")
+		dimensions = re.findall('pixel(Height|Width): ([0-9]+)', dimensions ,re.DOTALL)
+
+		css_attr = 'width: ' + dimensions[1][1] + 'px;' + "\n" + 'height: ' + dimensions[0][1] + 'px;'
+
+		sublime.set_clipboard(css_attr)
+
+
