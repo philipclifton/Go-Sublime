@@ -1,4 +1,4 @@
 [
 	{"caption":"-", "id":"side-bar-start-separator"},
-	{ "caption": "Get Size", 	      "id": "get_size",         "command": "get_image_size",         "args": {"paths": []} }
+	{ "caption": "Image Dimensions", 	      "id": "get_size",         "command": "get_image_size",         "args": {"paths": []} }
 ]
