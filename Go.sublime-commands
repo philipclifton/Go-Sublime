@@ -1,0 +1,14 @@
+[
+    {
+        "caption": "Go: Create Vhost",
+        "command": "create_vhost"
+    },
+    {
+        "caption": "Go: Remove Vhost",
+        "command": "remove_vhost"
+    },
+    {
+        "caption": "Go: Work Vhost",
+        "command": "work_vhost"
+    }
+]
